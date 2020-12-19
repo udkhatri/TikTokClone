@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
         height: Dimensions.get('screen').height-45,
         
     },
+    pauseButton:{
+        padding: 20,
+    },
     UIcontainer:{
         height:'100%',
         justifyContent:'flex-end',

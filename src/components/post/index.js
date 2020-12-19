@@ -15,12 +15,19 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const Post = (props) => {
 
   const [post, setPost] = useState(props.post);
+  console.log(props);
   //const {post} = props;
   const [paused, setPaused] = useState(false);
+  const [mute, setMute] = useState(false);
   const [isliked, setIsliked] = useState (false)
   const [videoUri, setVideoUri] = useState (''); 
+  
   const onPlayPause = () => {
     setPaused(!paused);
+  }
+  
+  const onMute = () =>{
+    setMute (!mute)
   }
 
   const onLikePost=  () =>{
@@ -41,12 +48,12 @@ const Post = (props) => {
   };
   useEffect(()=>{
     getVideoUri();
-    console.log(videoUri);
+   // console.log(videoUri);
   },[]);
 
   return (
     <View style={ styles.container}>
-    <TouchableWithoutFeedback onPress={onPlayPause} style={ styles.videoPlayButton}> 
+    <TouchableWithoutFeedback  onLongPress={onPlayPause} onPress={onMute} style={ styles.videoPlayButton}> 
     
     <Video
         source={{uri: videoUri}}
@@ -55,13 +62,13 @@ const Post = (props) => {
         onError={(e) => console.log(e)}
         repeat={true} 
         paused={paused}  
-        muted
+        muted = {mute}
       />
 
       </TouchableWithoutFeedback>
    
       <View style={styles.UIcontainer}>
-
+      
         <View style={styles.rightContainer}>
         
           <View style={styles.profilePictureContainer}>

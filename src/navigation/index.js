@@ -24,6 +24,7 @@ const RootNavigation = () =>{
                     name= 'CreatePost' 
                     component={CreatePost}
                  />
+                 
             </Stack.Navigator>
         </NavigationContainer>
     )
