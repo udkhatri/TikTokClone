@@ -24,5 +24,11 @@
       "dependsOn": [],
       "customAuth": false
     }
+  },
+  "storage": {
+    "TikTokclone": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

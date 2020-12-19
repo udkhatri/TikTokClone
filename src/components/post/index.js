@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 //Post page
 
-
-import React, {useState} from 'react';
+import {Storage} from 'aws-amplify'
+import React, {useEffect, useState} from 'react';
 import {Text, View, TouchableWithoutFeedback, Image, TouchableOpacity} from 'react-native';
 import Video from 'react-native-video';
 import styles from './styles';
@@ -18,25 +18,38 @@ const Post = (props) => {
   //const {post} = props;
   const [paused, setPaused] = useState(false);
   const [isliked, setIsliked] = useState (false)
+  const [videoUri, setVideoUri] = useState (''); 
   const onPlayPause = () => {
     setPaused(!paused);
   }
 
-  const onLikePost= () =>{
+  const onLikePost=  () =>{
     const likesToAdd= isliked ? -1: 1;
     setPost({
       ...post,
       likes: post.likes + likesToAdd,
-    })
+     })
     setIsliked(!isliked)
   }
+
+  const getVideoUri = async () => {
+    if (post.videoUri.startsWith('http')) {
+      setVideoUri(post.videoUri);
+      return;
+    }
+    setVideoUri(await Storage.get(post.videoUri));
+  };
+  useEffect(()=>{
+    getVideoUri();
+    console.log(videoUri);
+  },[]);
 
   return (
     <View style={ styles.container}>
     <TouchableWithoutFeedback onPress={onPlayPause} style={ styles.videoPlayButton}> 
     
     <Video
-        source={{uri: post.videoUri}}
+        source={{uri: videoUri}}
         style= {styles.video}
         resizeMode={'cover'}
         onError={(e) => console.log(e)}
@@ -44,9 +57,9 @@ const Post = (props) => {
         paused={paused}  
         muted
       />
+
       </TouchableWithoutFeedback>
    
-    
       <View style={styles.UIcontainer}>
 
         <View style={styles.rightContainer}>

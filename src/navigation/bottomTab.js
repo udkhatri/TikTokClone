@@ -2,6 +2,7 @@ import React from 'react';
 import {Image} from 'react-native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home/Index';
+import Camera from '../screens/Camera/index';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
@@ -13,7 +14,6 @@ const HomeBottomTabNavigator = ( ) => {
         <Tab.Navigator tabBarOptions={{
             tabStyle:{
                 backgroundColor: '#000',
-                
             },
             activeTintColor: '#fff',
             //inactiveTintColor: '#fff'
@@ -39,7 +39,7 @@ const HomeBottomTabNavigator = ( ) => {
                 />
             <Tab.Screen 
                 name={'Upload'} 
-                component={Home}
+                component={Camera}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                     <Image 
