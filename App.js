@@ -10,10 +10,10 @@ import {getUser} from './graphql/queries'
 //import Post from './src/components/post/index'
 
 const randomImages = [
-  'https://hiewmobile.com/wp-contact/uploads/avatar-among-us-2.jpg',
-  'https://hiewmobile.com/wp-contact/uploads/avatar-among-us-3.jpg',
-  'https://hiewmobile.com/wp-contact/uploads/avatar-among-us-6.jpg',
-  'https://hiewmobile.com/wp-contact/uploads/avatar-among-us-7.jpg',
+  'https://hieumobile.com/wp-content/uploads/avatar-among-us-2.jpg',
+  'https://hieumobile.com/wp-content/uploads/avatar-among-us-3.jpg',
+  'https://hieumobile.com/wp-content/uploads/avatar-among-us-6.jpg',
+  'https://hieumobile.com/wp-content/uploads/avatar-among-us-9.jpg',
 ]
 const getRandomImage = () =>{
   return randomImages[Math.floor(Math.random() * randomImages.length)];
