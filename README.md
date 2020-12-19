@@ -5,10 +5,10 @@ I have made this TikTok clone jsut for educatonal purpose.
 
 steps:
 
->> clone it on your local machine
->> yarn install
->> yarn start
->> yarn android
++ clone it on your local machine
++ yarn install
++ yarn start
++ yarn android
 
 APP WILL WORK PROPERLY ON IOS. 
 
