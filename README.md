@@ -10,5 +10,5 @@ steps:
 + yarn start
 + yarn android
 
-APP WILL WORK PROPERLY ON IOS. 
+🚫APP WILL NOT WORK PROPERLY ON IOS. 
 
